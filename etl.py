@@ -18,7 +18,7 @@ uid = os.environ['PGUID']
 driver = "{SQL Server}"
 server = "localhost"
 database = "AdventureWorksDW2022"
-tcn = "No"
+tcn = "Yes"
 
 # extract data from sql server
 def extract():
@@ -54,7 +54,7 @@ def load(df, tbl):
         print("Data load error: " + str(e))
 
 try:
-    # call extracxt function
+    # call extract function
     extract()
 except Exception as e:
-    print("Error  while extracting data: " + str(e))
+    print("Error while extracting data: " + str(e))
