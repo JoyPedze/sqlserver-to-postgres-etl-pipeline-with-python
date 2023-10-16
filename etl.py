@@ -15,14 +15,15 @@ pwd = os.environ['PGPASS']
 uid = os.environ['PGUID']
 
 # sql server database details
-driver = "{SQL Server Native Client 11.0}"
-server = "JOY-SW"
+driver = "{SQL Server}"
+server = "localhost"
 database = "AdventureWorksDW2022"
+tcn = "No"
 
 # extract data from sql server
 def extract():
     try:
-        src_conn = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + '\SQLEXPRESS' + ';DATABASE=' + database + ';UID=' + uid + ';PWD=' + pwd)
+        src_conn = pyodbc.connect('Trusted_connection=' + tcn + ';DRIVER=' + driver + ';SERVER=' + server + '\SQLEXPRESS' + ';DATABASE=' + database)
         # cursor allows python code to execute sql command in a database session
         src_cursor = src_conn.cursor()
         # execute query
